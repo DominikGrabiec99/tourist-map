@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts" setup>
-import * as am5 from "@amcharts/amcharts5";
-import * as am5map from "@amcharts/amcharts5/map";
-import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
-import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
-import am5geodata_data_countries2 from "@amcharts/amcharts5-geodata/data/countries2";
+import * as am5 from '@amcharts/amcharts5';
+import * as am5map from '@amcharts/amcharts5/map';
+import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
+import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow';
+import am5geodata_data_countries2 from '@amcharts/amcharts5-geodata/data/countries2';
 
 const chartdiv = ref<HTMLElement>();
 const pickedCountry = ref();
@@ -19,8 +19,8 @@ onMounted(() => {
 
   let chart = root.container.children.push(
     am5map.MapChart.new(root, {
-      panX: "rotateX",
-      panY: "rotateY",
+      panX: 'rotateX',
+      panY: 'rotateY',
       projection: am5map.geoOrthographic(),
       paddingBottom: 20,
       paddingTop: 20,
@@ -36,24 +36,24 @@ onMounted(() => {
   );
 
   polygonSeries.mapPolygons.template.setAll({
-    tooltipText: "{name}",
-    toggleKey: "active",
+    tooltipText: '{name}',
+    toggleKey: 'active',
     interactive: true,
   });
 
-  polygonSeries.mapPolygons.template.states.create("hover", {
-    fill: root.interfaceColors.get("primaryButtonHover"),
+  polygonSeries.mapPolygons.template.states.create('hover', {
+    fill: root.interfaceColors.get('primaryButtonHover'),
   });
 
-  polygonSeries.mapPolygons.template.states.create("active", {
-    fill: root.interfaceColors.get("primaryButtonHover"),
+  polygonSeries.mapPolygons.template.states.create('active', {
+    fill: root.interfaceColors.get('primaryButtonHover'),
   });
 
   let backgroundSeries = chart.series.push(
     am5map.MapPolygonSeries.new(root, {})
   );
   backgroundSeries.mapPolygons.template.setAll({
-    fill: root.interfaceColors.get("alternativeBackground"),
+    fill: root.interfaceColors.get('alternativeBackground'),
     fillOpacity: 0.1,
     strokeOpacity: 0,
   });
@@ -63,12 +63,12 @@ onMounted(() => {
 
   let previousPolygon;
 
-  polygonSeries.mapPolygons.template.on("active", function (active, target) {
+  polygonSeries.mapPolygons.template.on('active', function (active, target) {
     if (previousPolygon && previousPolygon != target) {
-      previousPolygon.set("active", false);
+      previousPolygon.set('active', false);
     }
-    if (target!.get("active")) {
-      selectCountry(target.dataItem.get("id"));
+    if (target!.get('active')) {
+      selectCountry(target.dataItem.get('id'));
     }
     previousPolygon = target;
   });
@@ -76,18 +76,18 @@ onMounted(() => {
   function selectCountry(id: string) {
     let dataItem = polygonSeries.getDataItemById(id);
     pickedCountry.value = am5geodata_data_countries2[id];
-    let target = dataItem!.get("mapPolygon");
+    let target = dataItem!.get('mapPolygon');
     if (target) {
       let centroid = target.geoCentroid();
       if (centroid) {
         chart.animate({
-          key: "rotationX",
+          key: 'rotationX',
           to: -centroid.longitude,
           duration: 1500,
           easing: am5.ease.inOut(am5.ease.cubic),
         });
         chart.animate({
-          key: "rotationY",
+          key: 'rotationY',
           to: -centroid.latitude,
           duration: 1500,
           easing: am5.ease.inOut(am5.ease.cubic),
@@ -97,8 +97,8 @@ onMounted(() => {
   }
 
   // Uncomment this to pre-center the globe on a country when it loads
-  polygonSeries.events.on("datavalidated", function () {
-    selectCountry("AU");
+  polygonSeries.events.on('datavalidated', function () {
+    selectCountry('AU');
   });
 
   // Make stuff animate on load
@@ -106,7 +106,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #chartdiv {
   width: 100%;
   height: 80vh;

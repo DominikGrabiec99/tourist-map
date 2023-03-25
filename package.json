@@ -8,10 +8,26 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.3.1"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.10.0",
+    "nuxt": "^3.3.1",
+    "prettier": "^2.8.7"
   },
   "dependencies": {
     "@amcharts/amcharts5": "^5.3.8",
-    "@amcharts/amcharts5-geodata": "^5.1.0"
+    "@amcharts/amcharts5-geodata": "^5.1.0",
+    "@pinia/nuxt": "^0.4.7",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@vue/server-renderer": "^3.2.47",
+    "@vueuse/nuxt": "^9.13.0",
+    "node-sass": "^8.0.0",
+    "pinia": "^2.0.33",
+    "sass": "^1.60.0",
+    "typescript": "^5.0.2",
+    "vue-server-renderer": "^2.7.14"
   }
 }
