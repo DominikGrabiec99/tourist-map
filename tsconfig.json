@@ -34,5 +34,5 @@
     "**/*.vue",
     "!schema/**/*.ts",
     "/utils/Validations/YupFields"
-  ]
+, "plugins/fontawesome.js"  ]
 }
