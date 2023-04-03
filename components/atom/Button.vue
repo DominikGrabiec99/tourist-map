@@ -17,7 +17,7 @@ defineProps({
   },
   secondary: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 defineEmits(['click']);
