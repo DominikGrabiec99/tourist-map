@@ -6,15 +6,25 @@ import am5geodata_data_countries2 from '@amcharts/amcharts5-geodata/data/countri
 
 const useGlobalMap = () => {
   const pickedCountry = ref();
+  const isMapLoading = ref(false);
   let polygonSeries: am5map.MapPolygonSeries;
   let chart: am5map.MapChart;
+
 
   const getUserCountryIdLocalization = () => {
       return Intl.DateTimeFormat().resolvedOptions().locale.toUpperCase();
   };
 
+  const setPickedCountry = (country: any, id: string) => {
+    pickedCountry.value = {
+      ...country,
+      id
+    }
+  };
+
   const init = (container: HTMLElement) => {
     if (!container) return;
+    isMapLoading.value = true;
     let root = am5.Root.new(container as HTMLElement);
 
     root.setThemes([am5themes_Animated.new(root)]);
@@ -64,15 +74,12 @@ const useGlobalMap = () => {
     });
 
     let previousPolygon: any;
-
     polygonSeries.mapPolygons.template.on('active', function (active, target) {
       if (previousPolygon && previousPolygon != target) {
         previousPolygon.set('active', false);
       }
-      if (target!.get('active')) {
-        // @ts-ignore
-        selectCountry(target!.dataItem!.get('id') as string);
-      }
+      // @ts-ignore
+      selectCountry(target!.dataItem!.get('id') as string);
       previousPolygon = target;
     });
     // Uncomment this to pre-center the globe on a country when it loads
@@ -82,14 +89,18 @@ const useGlobalMap = () => {
 
     // Make stuff animate on load
     chart.appear(1000, 100);
+    isMapLoading.value = false;
   };
 
   function selectCountry(id: string, isInitSet = false) {
     if (!polygonSeries || !chart) return;
     let dataItem = polygonSeries.getDataItemById(id);
-    if (!dataItem) return;
+    if (!dataItem) {
+      setPickedCountry(null, '')
+      return;
+    }
     if(!isInitSet) {
-      pickedCountry.value = am5geodata_data_countries2[id];
+      setPickedCountry(am5geodata_data_countries2[id], id)
     }
     let target = dataItem.get('mapPolygon');
     if (!target) return;
@@ -112,8 +123,9 @@ const useGlobalMap = () => {
 
   return {
     pickedCountry,
-    init,
     selectCountry,
+    init,
+    isMapLoading
   };
 };
 

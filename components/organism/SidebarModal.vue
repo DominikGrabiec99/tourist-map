@@ -23,6 +23,7 @@
       >
         <OrganismCountryModal
           v-if="modalOptions.name === ESidebarModalName.COUNTRY"
+          v-bind="modalOptions.props"
         />
       </div>
     </div>
@@ -40,7 +41,11 @@ const modalRef = ref();
 
 const closeModal = (element: any) => {
   if (element.target.className === modalRef.value?.className) return;
-  modalOptions.isOpen = false;
   modalOptions.name = ESidebarModalName.NONE;
+  if (modalOptions.props?.closeModal) {
+    modalOptions.props.closeModal();
+  }
+  modalOptions.isOpen = false;
+  modalOptions.props = {};
 };
 </script>

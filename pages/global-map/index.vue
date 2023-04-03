@@ -1,17 +1,48 @@
 <template>
-  <div id="chartdiv" ref="chartdiv" />
+  <div>
+    <OrganismGlobalMap :isMapLoading="isMapLoading" @set-map="setMap" />
+  </div>
 </template>
 
 <script lang="ts" setup>
-const chartdiv = ref<HTMLElement>();
+import { storeToRefs } from 'pinia';
+
+import EProvideName from '@/ts/enums/ProvideName';
+import ESidebarModalName from '@/ts/enums/SidebarModalName';
+import IModalOptions from '@/ts/interfaces/ModalOptions';
+
+const map = ref<HTMLElement>();
 
 const globalMap = useGlobalMap();
 
-const { init } = globalMap;
+// @ts-ignore
+const { isMapLoading, pickedCountry } = storeToRefs(globalMap);
+
+const modalOptions: IModalOptions = inject(EProvideName.SIDEBAR_MODAL)!;
+
+const { init, selectCountry } = globalMap;
 
 onMounted(() => {
-  if (!chartdiv.value) return;
-  init(chartdiv.value);
+  if (!map.value) return;
+  init(map.value);
+});
+
+const openModal = () => {
+  modalOptions.isOpen = true;
+  modalOptions.name = ESidebarModalName.COUNTRY;
+  modalOptions.props = {
+    pickedCountry: pickedCountry,
+    closeModal: () => selectCountry(''),
+  };
+};
+
+const setMap = (vMap: HTMLElement) => {
+  map.value = vMap;
+};
+
+watch(pickedCountry, () => {
+  if (!pickedCountry.value) return;
+  openModal();
 });
 </script>
 
