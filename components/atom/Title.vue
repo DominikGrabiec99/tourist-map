@@ -1,6 +1,7 @@
 <template>
-  <component :is="tag">
+  <component :is="tag" class="text-xl" :class="{ 'font-bold': bold }">
     {{ content }}
+    <slot />
   </component>
 </template>
 
@@ -8,11 +9,15 @@
 defineProps({
   content: {
     type: String,
-    defaul: '',
+    default: '',
   },
   tag: {
     type: String,
-    defaul: '',
+    default: 'h1',
+  },
+  bold: {
+    type: Boolean,
+    default: true,
   },
 });
 </script>

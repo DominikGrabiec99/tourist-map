@@ -1,6 +1,7 @@
 <template>
   <p>
     {{ text }}
+    <slot />
   </p>
 </template>
 
@@ -8,7 +9,7 @@
 defineProps({
   text: {
     type: String,
-    defaul: '',
+    default: '',
   },
 });
 </script>

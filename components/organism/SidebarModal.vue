@@ -4,8 +4,8 @@
     @click="(event) => closeModal(event)"
   >
     <div
-      class="modal top-0 right-0 absolute h-screen bg-white w-full sm:max-w-md py-4 px-3"
-      ref="modalRef"
+      class="modal top-0 right-0 absolute h-screen bg-white w-full sm:max-w-md py-4 px-3 z-20"
+      @click.stop=""
     >
       <div class="button-container flex justify-end">
         <AtomIcon
@@ -24,6 +24,7 @@
         <OrganismCountryModal
           v-if="modalOptions.name === ESidebarModalName.COUNTRY"
           v-bind="modalOptions.props"
+          @close-modal="closeModal"
         />
       </div>
     </div>
@@ -37,10 +38,7 @@ import IModalOptions from '@/ts/interfaces/ModalOptions';
 
 const modalOptions: IModalOptions = inject(EProvideName.SIDEBAR_MODAL)!;
 
-const modalRef = ref();
-
 const closeModal = (element: any) => {
-  if (element.target.className === modalRef.value?.className) return;
   modalOptions.name = ESidebarModalName.NONE;
   if (modalOptions.props?.closeModal) {
     modalOptions.props.closeModal();

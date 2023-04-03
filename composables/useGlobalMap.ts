@@ -4,8 +4,12 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow';
 import am5geodata_data_countries2 from '@amcharts/amcharts5-geodata/data/countries2';
 
+//interfaces
+import { Country2 } from '@amcharts/amcharts5-geodata/.internal/Data'
+import IPickedCountry from '@/ts/interfaces/PickedCountry'
+
 const useGlobalMap = () => {
-  const pickedCountry = ref();
+  const pickedCountry = ref<IPickedCountry>();
   const isMapLoading = ref(false);
   let polygonSeries: am5map.MapPolygonSeries;
   let chart: am5map.MapChart;
@@ -15,7 +19,7 @@ const useGlobalMap = () => {
       return Intl.DateTimeFormat().resolvedOptions().locale.toUpperCase();
   };
 
-  const setPickedCountry = (country: any, id: string) => {
+  const setPickedCountry = (country: Country2, id: string) => {
     pickedCountry.value = {
       ...country,
       id
@@ -93,10 +97,10 @@ const useGlobalMap = () => {
   };
 
   function selectCountry(id: string, isInitSet = false) {
-    if (!polygonSeries || !chart) return;
+    if (!polygonSeries || !chart || !id) return;
     let dataItem = polygonSeries.getDataItemById(id);
     if (!dataItem) {
-      setPickedCountry(null, '')
+      setPickedCountry({} as IPickedCountry, '')
       return;
     }
     if(!isInitSet) {

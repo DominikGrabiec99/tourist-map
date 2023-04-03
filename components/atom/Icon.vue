@@ -8,7 +8,7 @@
 defineProps({
   icon: {
     type: Array as PropType<string[]>,
-    defaul: [],
+    default: [],
   },
 });
 </script>
