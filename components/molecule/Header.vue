@@ -1,7 +1,7 @@
 <template>
   <div class="w-full bg-gradient-to-r from-sky-400 to-pink-600 pb-px">
-    <div class="h-full w-full bg-white">
-      <div class="px-4 py-2 drop-shadow-lg">
+    <div class="h-full w-full bg-white flex">
+      <div class="px-4 py-2 drop-shadow-lg flex">
         <NuxtLink class="flex items-end" to="/">
           <AtomImage class="h-12" src="/favicon.png" alt-text="Tourist App" />
           <AtomTitle
@@ -10,6 +10,7 @@
             content="Tourist App"
           />
         </NuxtLink>
+        <NuxtLink class="flex items-end" to="/global-map">Mapa</NuxtLink>
       </div>
     </div>
   </div>

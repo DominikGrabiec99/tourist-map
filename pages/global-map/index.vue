@@ -1,6 +1,6 @@
 <template>
   <div>
-    <OrganismGlobalMap :isMapLoading="isMapLoading" @set-map="setMap" />
+    <MoleculeMap :is-map-loading="isMapLoading" @set-map="setMap" />
   </div>
 </template>
 
@@ -45,11 +45,3 @@ watch(pickedCountry, () => {
   openModal();
 });
 </script>
-
-<style scoped lang="scss">
-#chartdiv {
-  width: 100%;
-  height: 80vh;
-  max-width: 100%;
-}
-</style>

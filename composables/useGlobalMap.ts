@@ -86,12 +86,11 @@ const useGlobalMap = () => {
       selectCountry(target!.dataItem!.get('id') as string);
       previousPolygon = target;
     });
-    // Uncomment this to pre-center the globe on a country when it loads
+    
     polygonSeries.events.on('datavalidated', function () {
       selectCountry(getUserCountryIdLocalization(), true);
     });
 
-    // Make stuff animate on load
     chart.appear(1000, 100);
     isMapLoading.value = false;
   };

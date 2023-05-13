@@ -21,7 +21,7 @@
             modalOptions.name === ESidebarModalName.COUNTRY,
         }"
       >
-        <OrganismCountryModal
+        <MoleculeCountryModal
           v-if="modalOptions.name === ESidebarModalName.COUNTRY"
           v-bind="modalOptions.props"
           @close-modal="closeModal"
