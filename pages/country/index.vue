@@ -1,0 +1,1 @@
+<template>Wybeirz państwo z listy lub przejdź do mapy</template>
