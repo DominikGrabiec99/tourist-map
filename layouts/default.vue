@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="min-h-screen">
     <MoleculeHeader />
-    <slot />
+    <div class="container mx-auto px-2">
+      <slot />
+    </div>
   </div>
 </template>

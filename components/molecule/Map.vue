@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full w-full">
     <AtomLoading v-if="isMapLoading" class="loading" />
     <div
       v-else

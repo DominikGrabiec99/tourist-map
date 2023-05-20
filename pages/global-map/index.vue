@@ -1,6 +1,19 @@
 <template>
-  <div>
-    <MoleculeMap :is-map-loading="isMapLoading" @set-map="setMap" />
+  <div class="flex flex-col">
+    <OrganismHeaderGlobalMap
+      v-model="searchCountryValue"
+      class="mt-2"
+      title="Odkryj swój kierunek podróży"
+      :founded-counties="foundedCounties"
+      :show-result="showSearchCountryResult"
+      @set-select-country="setSelectCountry"
+      @toggle-focus-input="toggleFocusCountryInput"
+    />
+    <div class="flex h-full w-full">
+      <!-- TODO Filters -->
+      <div />
+      <MoleculeMap :is-map-loading="isMapLoading" @set-map="setMap" />
+    </div>
   </div>
 </template>
 
@@ -44,4 +57,25 @@ watch(pickedCountry, () => {
   if (!pickedCountry.value) return;
   openModal();
 });
+
+const searchCountryValue = ref('');
+const isFocusSearchCountryInput = ref(false);
+
+const { getFoundedCounties } = useFindCountries();
+const foundedCounties = computed(() =>
+  getFoundedCounties(searchCountryValue.value, 3)
+);
+
+const setSelectCountry = (id: string) => {
+  searchCountryValue.value = '';
+  selectCountry(id);
+};
+
+const toggleFocusCountryInput = (isFocus: boolean) => {
+  isFocusSearchCountryInput.value = isFocus;
+};
+
+const showSearchCountryResult = computed(
+  () => !!foundedCounties.value.length && isFocusSearchCountryInput.value
+);
 </script>

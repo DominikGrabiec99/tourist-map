@@ -1,4 +1,4 @@
-import countries from '@/constans/polish_name_country';
+import countries from '@/constants/polish_name_countries';
 
 export default defineNuxtRouteMiddleware((to) => {
   if (
