@@ -30,46 +30,32 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  id: {
-    type: String,
-    default: '',
-  },
-  label: {
-    type: String,
-    default: '',
-  },
-  isRequire: {
-    type: Boolean,
-    default: false,
-  },
-  name: {
-    type: String,
-    default: '',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  error: {
-    type: String,
-    default: '',
-  },
-  type: {
-    type: String,
-    default: 'text',
-  },
-  pattern: {
-    type: String,
-    default: '',
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    placeholder?: string;
+    id?: string;
+    label?: string;
+    isRequire?: boolean;
+    name?: string;
+    disabled?: boolean;
+    error?: string;
+    type?: string;
+    pattern?: string;
+  }>(),
+  {
+    placeholder: '',
+    id: '',
+    label: '',
+    isRequire: false,
+    name: '',
+    disabled: false,
+    error: '',
+    type: 'text',
+    pattern: '',
+  }
+);
 
-const modelValue =  defineModel<string>()
+const modelValue = defineModel<string>();
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void;

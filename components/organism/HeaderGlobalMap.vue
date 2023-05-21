@@ -8,7 +8,7 @@
       v-model="modelValue"
       :founded-counties="foundedCounties"
       :show-result="showResult"
-      @set-select-country="$emit('setSelectCountry', $event)"
+      @set-select-country="$emit('set-select-country', $event)"
       @toggle-focus-input="$emit('toggle-focus-input', $event)"
     />
   </div>
@@ -17,24 +17,15 @@
 <script setup lang="ts">
 import IPolishCountryName from '@/ts/interfaces/PolishCountryName';
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  modelValue: {
-    type: String,
-    default: '',
-  },
-  foundedCounties: {
-    type: Array as PropType<IPolishCountryName[]>,
-    default: [],
-  },
-  showResult: {
-    type: Boolean,
-    default: true,
-  },
-});
+const props = withDefaults(defineProps<{
+  title?: string,
+  foundedCounties?: IPolishCountryName[],
+  showResult?: boolean,
+}>(), {
+  title: '',
+  foundedCounties: () => ([]),
+  showResult: true,
+})
 
 const modelValue = defineModel<string>();
 

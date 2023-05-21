@@ -18,7 +18,7 @@
           none
           li-class="bg-slate-100 odd:bg-slate-200"
         >
-          <template v-slot="{ item }: { item: any }">
+          <template v-slot="{ item }">
             <span
               class="py-2 px-2 w-full block cursor-pointer"
               @click="emit('set-select-country', item.code as string)"
@@ -40,20 +40,17 @@
 <script setup lang="ts">
 import IPolishCountryName from '@/ts/interfaces/PolishCountryName';
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: '',
-  },
-  foundedCounties: {
-    type: Array as PropType<IPolishCountryName[]>,
-    default: [],
-  },
-  showResult: {
-    type: Boolean,
-    default: true,
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string;
+    foundedCounties?: IPolishCountryName[];
+    showResult?: boolean;
+  }>(),
+  {
+    foundedCounties: () => [],
+    showResult: true,
+  }
+);
 
 const modelValue = defineModel<string>();
 
@@ -62,7 +59,6 @@ const emit = defineEmits<{
   (e: 'set-select-country', value: string): void;
 }>();
 </script>
-
 
 <style scoped lang="scss">
 .v-enter-active,

@@ -13,20 +13,18 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  text: {
-    type: String,
-    default: '',
-  },
-  secondary: {
-    type: Boolean,
-    default: false,
-  },
-  buttonClass: {
-    type: String,
-    default: '',
-  },
-});
+withDefaults(
+  defineProps<{
+    text?: string;
+    secondary?: boolean;
+    buttonClass?: string;
+  }>(),
+  {
+    text: '',
+    secondary: false,
+    buttonClass: '',
+  }
+);
 
 defineEmits<{
   (e: 'click'): void;

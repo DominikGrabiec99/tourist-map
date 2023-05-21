@@ -14,12 +14,9 @@
 const emit = defineEmits<{
   (e: 'set-map', value: HTMLElement): void;
 }>();
-const props = defineProps({
-  isMapLoading: {
-    type: Boolean,
-    default: false,
-  },
-});
+const { isMapLoading = false } = defineProps<{
+  isMapLoading?: boolean;
+}>();
 </script>
 
 <style lang="scss" scoped>

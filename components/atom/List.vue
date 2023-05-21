@@ -11,7 +11,7 @@
       }"
     >
       <li
-        v-for="(item, index) in list?.length ? list : Object.keys($slots)"
+        v-for="(item, index) in list"
         :key="`${listName}-item-${index}`"
         class="list-item"
         :class="liClass"
@@ -26,30 +26,22 @@
 </template>
 
 <script setup lang="ts" generic="T">
-const props = defineProps({
-  listName: {
-    type: String,
-    require: true,
-  },
-  list: {
-    type: Array,
-    default: () => [],
-  },
-  enumerateList: {
-    type: Boolean,
-    default: false,
-  },
-  none: {
-    type: Boolean,
-    default: false,
-  },
-  square: {
-    type: Boolean,
-    default: false,
-  },
-  liClass: {
-    type: String,
-    require: '',
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    listName?: string;
+    list?: T[];
+    enumerateList?: boolean;
+    none?: boolean;
+    square?: boolean;
+    liClass?: string;
+  }>(),
+  {
+    listName: '',
+    list: () => [],
+    enumerateList: false,
+    none: false,
+    square: false,
+    liClass: '',
+  }
+);
 </script>

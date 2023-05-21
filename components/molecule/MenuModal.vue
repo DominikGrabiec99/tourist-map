@@ -3,10 +3,5 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  user: {
-    type: Object,
-    default: undefined,
-  },
-});
+const { user: undefined } = defineProps<{ user?: Object }>();
 </script>

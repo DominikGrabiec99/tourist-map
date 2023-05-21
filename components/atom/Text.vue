@@ -6,10 +6,12 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  text: {
-    type: String,
-    default: '',
-  },
-});
+withDefaults(
+  defineProps<{
+    text?: string;
+  }>(),
+  {
+    text: '',
+  }
+);
 </script>

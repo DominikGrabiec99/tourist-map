@@ -6,18 +6,13 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  content: {
-    type: String,
-    default: '',
-  },
-  tag: {
-    type: String,
-    default: 'h1',
-  },
-  bold: {
-    type: Boolean,
-    default: true,
-  },
-});
+const {
+  content = '',
+  tag = '',
+  bold = true,
+} = defineProps<{
+  content?: string;
+  tag?: string;
+  bold?: boolean;
+}>();
 </script>

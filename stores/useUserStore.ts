@@ -1,7 +1,11 @@
 import { defineStore } from "pinia";
 
+interface IState {
+  user: Object | undefined
+}
+
 export const useUserStore = defineStore('userStore', {
-  state: () => {
+  state: (): IState => {
     return {
       user: undefined
     }

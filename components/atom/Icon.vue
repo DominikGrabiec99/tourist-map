@@ -5,10 +5,12 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  icon: {
-    type: Array as PropType<string[]>,
-    default: [],
-  },
-});
+withDefaults(
+  defineProps<{
+    icon?: string[];
+  }>(),
+  {
+    icon: () => [],
+  }
+);
 </script>

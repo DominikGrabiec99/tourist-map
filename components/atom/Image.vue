@@ -3,14 +3,14 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  src: {
-    type: String,
-    default: '',
-  },
-  altText: {
-    type: String,
-    default: 'Zdjęcie',
-  },
-});
+withDefaults(
+  defineProps<{
+    src?: string;
+    altText?: string;
+  }>(),
+  {
+    src: '',
+    altText: 'Zdjęcie',
+  }
+);
 </script>

@@ -8,21 +8,15 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  href: {
-    type: String,
-    default: '',
-  },
-
-  altTex: {
-    type: String,
-    default: '',
-  },
-  blank: {
-    type: Boolean,
-    default: false,
-  },
-});
+const props = withDefaults(defineProps<{
+  href?: string,
+  altTex?: string,
+  blank?: boolean,
+}>(), {
+  href: '',
+  altTex:'',
+  blank:  false,
+})
 
 const { href } = toRefs(props);
 
