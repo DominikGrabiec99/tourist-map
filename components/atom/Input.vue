@@ -11,7 +11,7 @@
     >
     <input
       :name="name"
-      :value="modelValue"
+      v-model="modelValue"
       :placeholder="placeholder"
       :id="id"
       :type="type"
@@ -20,9 +20,8 @@
       autocomplete="off"
       :class="{ 'border-red-500': error }"
       class="placeholder:italic placeholder:text-slate-400 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-      @input="$emit('update:modelValue', $event?.target?.value || '')"
-      @focus="$emit('toggle-focus-input', true)"
-      @blur="$emit('toggle-focus-input', false)"
+      @focus="emit('toggle-focus-input', true)"
+      @blur="emit('toggle-focus-input', false)"
     />
     <label class="block text-sm font-medium text-red-500">
       {{ error }}
@@ -31,11 +30,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  modelValue: {
-    type: String,
-    default: '',
-  },
+const props = defineProps({
   placeholder: {
     type: String,
     default: '',
@@ -73,6 +68,11 @@ defineProps({
     default: '',
   },
 });
-const focus = ref();
-defineEmits(['update:modelValue', 'toggle-focus-input']);
+
+const modelValue =  defineModel<string>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void;
+  (e: 'toggle-focus-input', value: boolean): void;
+}>();
 </script>

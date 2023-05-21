@@ -11,23 +11,27 @@ definePageMeta({
   middleware: 'country-exist',
 });
 
-const map = ref<HTMLElement>();
+const map = ref<Element>();
 
 const route = useRoute();
 
-const countrylMap = useCountryMap();
+const countryMap = useCountryMap();
 
 // @ts-ignore
-const { isMapLoading } = storeToRefs(countrylMap);
+const { isMapLoading } = storeToRefs(countryMap);
 
-const { init } = countrylMap;
+const { init } = countryMap;
 
 onMounted(() => {
   if (!map.value) return;
   init(map.value, route.params?.id.toString() || '');
 });
 
-const setMap = (vMap: HTMLElement) => {
+const setMap = (vMap: Element) => {
   map.value = vMap;
 };
 </script>
+
+function definePageMeta(arg0: { middleware: string; }) {
+  throw new Error('Function not implemented.');
+}

@@ -1,7 +1,11 @@
 <template>
-  <div>
+  <div class="block md:flex w-full justify-around">
+    <AtomText 
+      class="hidden md:flex items-center text-gray-700 text-xl font-bold"
+      :text="title"
+    />
     <MoleculeSearchCountry
-      v-model="localValue"
+      v-model="modelValue"
       :founded-counties="foundedCounties"
       :show-result="showResult"
       @set-select-country="$emit('setSelectCountry', $event)"
@@ -31,10 +35,12 @@ const props = defineProps({
     default: true,
   },
 });
-const emit = defineEmits([
-  'update:modelValue',
-  'set-select-country',
-  'toggle-focus-input',
-]);
-const localValue = useModalWrapper(props, emit);
+
+const modelValue = defineModel<string>();
+
+const emit = defineEmits<{
+  (e: 'toggle-focus-input', value: boolean): void;
+  (e: 'set-select-country', value: string): void;
+}>();
+
 </script>

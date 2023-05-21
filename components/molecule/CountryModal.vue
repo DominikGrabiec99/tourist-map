@@ -16,7 +16,7 @@ import findPolishCountryName from '@/utils/findPolishCountryName';
 //interfaces
 import IPickedCountry from '@/ts/interfaces/PickedCountry';
 
-const { pickedCountry } = defineProps({
+const props = defineProps({
   pickedCountry: {
     type: Object as PropType<IPickedCountry>,
     default: {},
@@ -27,9 +27,11 @@ const { pickedCountry } = defineProps({
   },
 });
 
-defineEmits(['close-modal']);
+const { pickedCountry } = toRefs(props);
+
+defineEmits<{ (e: 'close-modal'): void }>();
 
 const title = computed(
-  () => `Wybrałeś państwo: ${findPolishCountryName(pickedCountry.id)}`
+  () => `Wybrałeś państwo: ${findPolishCountryName(pickedCountry.value.id)}`
 );
 </script>

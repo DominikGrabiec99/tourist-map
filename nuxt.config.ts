@@ -8,6 +8,14 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
     },
   },
+  vite: {
+        vue: {
+            script: {
+                defineModel: true,
+                propsDestructure: true
+            }
+        }
+  },
   modules: ["@pinia/nuxt", "@vueuse/nuxt"],
   css: [
     '~/assets/css/main.css',

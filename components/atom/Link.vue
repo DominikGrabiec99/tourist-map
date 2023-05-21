@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-const { href } = defineProps({
+const props = defineProps({
   href: {
     type: String,
     default: '',
@@ -24,5 +24,7 @@ const { href } = defineProps({
   },
 });
 
-const isGlobalLink = computed(() => href.includes('http'));
+const { href } = toRefs(props);
+
+const isGlobalLink = computed(() => href.value.includes('http'));
 </script>

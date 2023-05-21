@@ -5,14 +5,16 @@
       v-else
       id="chartdiv"
       class="w-full max-h-full"
-      :ref="(el) => emit('set-map', el)"
+      :ref="(el) => emit('set-map', el as HTMLElement)"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['set-map']);
-const { isMapLoading } = defineProps({
+const emit = defineEmits<{
+  (e: 'set-map', value: HTMLElement): void;
+}>();
+const props = defineProps({
   isMapLoading: {
     type: Boolean,
     default: false,

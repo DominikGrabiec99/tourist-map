@@ -1,11 +1,11 @@
 <template>
   <div class="flex md:justify-end relative">
     <AtomInput
-      v-model="localValue"
+      v-model="modelValue"
       placeholder="Znajdź kraj.."
       id="find-country"
       class="w-full"
-      @toggle-focus-input="$emit('toggle-focus-input', $event)"
+      @toggle-focus-input="emit('toggle-focus-input', $event)"
     />
     <Transition>
       <div
@@ -21,7 +21,7 @@
           <template v-slot="{ item }: { item: any }">
             <span
               class="py-2 px-2 w-full block cursor-pointer"
-              @click="$emit('set-select-country', item.code)"
+              @click="emit('set-select-country', item.code as string)"
             >
               <AtomImage
                 :src="`https://flagcdn.com/16x12/${item.code.toLowerCase()}.png`"
@@ -55,13 +55,12 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits([
-  'update:modelValue',
-  'set-select-country',
-  'toggle-focus-input',
-]);
+const modelValue = defineModel<string>();
 
-const localValue = useModalWrapper(props, emit);
+const emit = defineEmits<{
+  (e: 'toggle-focus-input', value: boolean): void;
+  (e: 'set-select-country', value: string): void;
+}>();
 </script>
 
 

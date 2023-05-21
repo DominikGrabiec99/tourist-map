@@ -3,14 +3,14 @@ import * as am5map from '@amcharts/amcharts5/map';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import countries2 from '@amcharts/amcharts5-geodata/data/countries2';
 
-const useCountrylMap = () => {
+const useCountryMap = () => {
   const isMapLoading = ref(false);
 
   let chart: any;
   let polygonSeries: any;
   let root: any;
 
-  const init = (container: HTMLElement, countryCode: string) => {
+  const init = (container: Element, countryCode: string) => {
     if (!container && !countryCode) return;
     isMapLoading.value = true;
     root = am5.Root.new(container as HTMLElement);
@@ -109,4 +109,4 @@ const useCountrylMap = () => {
   };
 };
 
-export default useCountrylMap;
+export default useCountryMap;

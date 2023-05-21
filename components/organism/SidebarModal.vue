@@ -1,7 +1,7 @@
 <template>
   <div
     class="absolute top-0 left-0 w-full h-full bg-black-rgba-06"
-    @click="(event) => closeModal(event)"
+    @click="closeModal()"
   >
     <div
       class="modal top-0 right-0 absolute h-screen bg-white w-full sm:max-w-md py-4 px-3 z-20"
@@ -9,7 +9,7 @@
     >
       <div class="button-container flex justify-end">
         <AtomIcon
-          @click="(event) => closeModal(event)"
+          @click="closeModal()"
           class="close-modal bg-transparent text-2xl cursor-pointer text-gray-400"
           :icon="['fas', 'xmark']"
         />
@@ -26,6 +26,11 @@
           v-bind="modalOptions.props"
           @close-modal="closeModal"
         />
+        <MoleculeMenuModal
+          v-if="modalOptions.name === ESidebarModalName.MENU"
+          v-bind="modalOptions.props"
+          @close-modal="closeModal"
+        />
       </div>
     </div>
   </div>
@@ -38,7 +43,7 @@ import IModalOptions from '@/ts/interfaces/ModalOptions';
 
 const modalOptions: IModalOptions = inject(EProvideName.SIDEBAR_MODAL)!;
 
-const closeModal = (element: any) => {
+const closeModal = () => {
   modalOptions.name = ESidebarModalName.NONE;
   if (modalOptions.props?.closeModal) {
     modalOptions.props.closeModal();
