@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
-    icon?: string[];
+    icon: string[];
   }>(),
   {
     icon: () => [],

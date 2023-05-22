@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
-  href?: string,
+  href: string,
   altTex?: string,
   blank?: boolean,
 }>(), {
