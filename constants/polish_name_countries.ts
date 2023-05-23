@@ -1,4 +1,4 @@
-const countries = [
+const ALL_COUNTRIES_WITH_POLISH_NAME = [
   {
     name_pl: 'Afganistan',
     name_en: 'Afghanistan',
@@ -1246,4 +1246,4 @@ const countries = [
   },
 ];
 
-export default countries;
+export default ALL_COUNTRIES_WITH_POLISH_NAME;

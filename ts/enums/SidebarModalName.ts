@@ -1,7 +1,6 @@
 enum ESidebarModalName {
   NONE = 'NONE',
-  COUNTRY = 'COUNTRY',
-  MENU = 'MENU'
+  COUNTRY = 'COUNTRY'
 }
 
 export default ESidebarModalName;

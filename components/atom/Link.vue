@@ -1,5 +1,5 @@
 <template>
-  <a v-if="isGlobalLink" :href="href" :alt="altTex" :_blank="blank">
+  <a v-if="isGlobalLink" :href="href" :_blank="blank">
     <slot />
   </a>
   <NuxtLink v-else :to="href">
@@ -10,11 +10,9 @@
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
   href: string,
-  altTex?: string,
   blank?: boolean,
 }>(), {
   href: '',
-  altTex:'',
   blank:  false,
 })
 

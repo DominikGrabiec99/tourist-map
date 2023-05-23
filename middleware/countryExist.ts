@@ -1,8 +1,8 @@
-import countries from '@/constants/polish_name_countries';
+import ALL_COUNTRIES_WITH_POLISH_NAME from '@/constants/polish_name_countries';
 
 export default defineNuxtRouteMiddleware((to) => {
   if (
-    !countries.find((country) => country.code.toLowerCase() === to.params.id)
+    !ALL_COUNTRIES_WITH_POLISH_NAME.find((country) => country.code.toLowerCase() === to.params.id)
   ) {
     return navigateTo('/');
   }

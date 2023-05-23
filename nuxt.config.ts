@@ -16,7 +16,7 @@ export default defineNuxtConfig({
             }
         }
   },
-  modules: ["@pinia/nuxt", "@vueuse/nuxt"],
+  modules: ["@pinia/nuxt", "@vueuse/nuxt", "nuxt-icon"],
   css: [
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-svg-core/styles.css'

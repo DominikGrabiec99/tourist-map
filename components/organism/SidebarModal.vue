@@ -26,11 +26,6 @@
           v-bind="modalOptions.props"
           @close-modal="closeModal"
         />
-        <MoleculeMenuModal
-          v-if="modalOptions.name === ESidebarModalName.MENU"
-          v-bind="modalOptions.props"
-          @close-modal="closeModal"
-        />
       </div>
     </div>
   </div>
