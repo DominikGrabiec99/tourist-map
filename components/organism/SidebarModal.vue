@@ -1,10 +1,10 @@
 <template>
   <div
-    class="absolute top-0 left-0 w-full h-full bg-black-rgba-06"
+    class="absolute top-0 z-50 left-0 w-full h-full bg-black-rgba-06 dark:bg-white-rgba-06"
     @click="closeModal()"
   >
     <div
-      class="modal top-0 right-0 absolute h-screen bg-white w-full sm:max-w-md py-4 px-3 z-20"
+      class="modal top-0 right-0 absolute h-screen bg-white dark:bg-neutral-900  w-full sm:max-w-md py-4 px-3 z-20"
       @click.stop=""
     >
       <div class="button-container flex justify-end">

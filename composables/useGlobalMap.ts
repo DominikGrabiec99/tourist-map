@@ -15,7 +15,6 @@ const useGlobalMap = () => {
   let polygonSeries: am5map.MapPolygonSeries;
   let chart: am5map.MapChart;
 
-
   const getUserCountryIdLocalization = () => {
       return Intl.DateTimeFormat().resolvedOptions().locale.toUpperCase();
   };
@@ -58,22 +57,31 @@ const useGlobalMap = () => {
       interactive: true,
     });
 
+    // set colors 
+    polygonSeries.mapPolygons.template.setAll({
+      fill: am5.Color.fromCSS("rgb(7, 97, 8)"),
+      fillOpacity: 1,
+      layer: 2
+    });
+
     polygonSeries.mapPolygons.template.states.create('hover', {
-      fill: root.interfaceColors.get('primaryButtonHover'),
+      fill: am5.Color.fromCSS("rgb(7, 115, 8)"),
     });
 
     polygonSeries.mapPolygons.template.states.create('active', {
-      fill: root.interfaceColors.get('primaryButtonHover'),
+      fill: am5.Color.fromCSS("rgb(7, 115, 8)"),
     });
 
     let backgroundSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {})
     );
     backgroundSeries.mapPolygons.template.setAll({
-      fill: root.interfaceColors.get('alternativeBackground'),
-      fillOpacity: 0.1,
+      fill: am5.Color.fromCSS("rgb(29, 135, 222)"),
+      fillOpacity: 1,
+      layer: 1,
       strokeOpacity: 0,
     });
+
     backgroundSeries.data.push({
       geometry: am5map.getGeoRectangle(90, 180, -90, -180),
     });
