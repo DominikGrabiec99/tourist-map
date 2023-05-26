@@ -10,7 +10,7 @@
             v-for="option in MENU_OPTIONS"
             :key="option.id"
             :href="option.link"
-            class="cursor-pointer text-lg text-sky-950 hover:text-sky-800 mr-6"
+            class="cursor-pointer text-lg text-sky-950 hover:text-sky-800 dark:text-sky-600 dark:hover:text-sky-500 mr-6 transition-color"
           >
             {{ option.text }}
           </AtomLink>
@@ -20,11 +20,7 @@
           :menu-options="USER_MENU_LOGOUT_OPTIONS"
           @toggle-user-menu="toggleUserMenu"
         />
-        <Icon
-          name="humbleicons:bulb"
-          size="24"
-          class="dark:text-white cursor-pointer"
-        />
+        <MoleculeLightModeIcon />
       </div>
     </template>
   </MoleculeHeader>
@@ -45,6 +41,7 @@ if (process.client) {
   document.body.addEventListener(
     'click',
     (event) => {
+      //@ts-ignore
       if (event.target?.id === 'user-menu') return;
       toggleUserMenu(false);
     },

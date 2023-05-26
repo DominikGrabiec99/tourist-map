@@ -10,13 +10,13 @@
     <Transition>
       <div
         v-if="showResult"
-        class="absolute bottom-0 right-0 w-full md:max-w-xs z-10 translate-y-full rounded-md border border-slate-300"
+        class="absolute bottom-0 right-0 w-full md:max-w-xs z-10 translate-y-full rounded-md border border-slate-300 dark:border-white transition-color"
       >
         <AtomList
           listName="search-country-list"
           :list="foundedCounties"
           none
-          li-class="bg-slate-100 odd:bg-slate-200"
+          li-class="bg-slate-100 odd:bg-slate-200 dark:text-white dark:bg-neutral-600 dark:odd:bg-neutral-700 transition-color"
         >
           <template v-slot="{ item }">
             <span

@@ -13,24 +13,20 @@
     <template #right>
       <div class="flex items-end">
         <MoleculeMenuIcon :is-open-modal="isOpenMenu" @click="toggleMenu" class="mr-2" />
-        <Icon
-          name="humbleicons:bulb"
-          size="24"
-          class="dark:text-white pl-1 cursor-pointer"
-        />
+        <MoleculeLightModeIcon />
       </div>
     </template>
     <template #bottom>
       <Transition name="menu">
         <nav
           v-if="isOpenMenu"
-          class="absolute z-10 bottom-0 left-0 translate-y-full w-full bg-white h-[calc(100vh-4rem)] flex flex-col items-center pt-4"
+          class="absolute z-10 bottom-0 left-0 translate-y-full w-full bg-white h-[calc(100vh-4rem)] flex flex-col items-center pt-4 dark:bg-neutral-900 transition-color"
         >
           <AtomLink
             v-for="option in MENU_OPTIONS"
             :key="option.id"
             :href="option.link"
-            class="cursor-pointer text-lg text-sky-950 hover:text-sky-800 mt-2 flex items-center"
+            class="cursor-pointer text-lg text-sky-950 hover:text-sky-800 dark:text-sky-600 dark:hover:text-sky-500 mt-2 flex items-center transition-color"
             @click="toggleMenu"
           >
             <Icon v-if="option.icon" :name="option.icon" size="20" class="block" /><span
@@ -41,7 +37,7 @@
         </nav>
       </Transition>
     </template>
-  </MoleculeHeader>
+  </MoleculeHeader >
 </template>
 
 <script setup lang="ts">
@@ -64,6 +60,7 @@ if (process.client) {
   document.body.addEventListener(
     'click',
     (event) => {
+      //@ts-ignore
       if (event.target?.id === 'user-menu') return;
       toggleUserMenu(false);
     },

@@ -1,3 +1,3 @@
 <template>
-  <div>start page</div>
+  <div class="h-full">start page</div>
 </template>

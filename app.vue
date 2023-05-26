@@ -8,8 +8,14 @@
 </template>
 
 <script lang="ts" setup>
+import { useLightModeStore } from '@/stores/useLightModeStore';
+
 import ESidebarModalName from '@/ts/enums/SidebarModalName';
 import EProvideName from '@/ts/enums/ProvideName';
+
+const lightModeStore = useLightModeStore();
+
+const { setLightModeOnPage, getLightModeFromStorage } = lightModeStore
 
 const modalOptions = reactive({
   props: {},
@@ -18,6 +24,12 @@ const modalOptions = reactive({
 });
 
 provide(EProvideName.SIDEBAR_MODAL, modalOptions);
+
+onMounted(() => {
+  getLightModeFromStorage();
+  setLightModeOnPage();
+})
+
 </script>
 
 <style lang="scss">

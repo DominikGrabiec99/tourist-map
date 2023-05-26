@@ -13,7 +13,7 @@
     <Transition name="menu">
       <div
         v-if="isUserMenuOpen"
-        class="absolute bottom-0 translate-y-full bg-white text-sm w-32 p-2 border-gray-300 border rounded flex flex-col z-40"
+        class="absolute bottom-0 translate-y-full bg-white dark:text-white dark:bg-neutral-900 text-sm w-32 p-2 border-gray-300 border rounded flex flex-col z-40 transition-color"
       >
         <div
           class="absolute w-0 h-0 top-0 left-1/2 -translate-y-full -translate-x-1/2 border-x-8 border-solid border-b-8 border-white border-x-transparent"

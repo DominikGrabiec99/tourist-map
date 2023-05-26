@@ -19,7 +19,7 @@
       :pattern="pattern"
       autocomplete="off"
       :class="{ 'border-red-500': error }"
-      class="placeholder:italic placeholder:text-slate-400 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+      class="placeholder:italic placeholder:text-slate-400 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 dark:bg-neutral-800 dark:text-white outline-none focus:border-inherit focus:shadow-none transition-color"
       @focus="emit('toggle-focus-input', true)"
       @blur="emit('toggle-focus-input', false)"
     />
