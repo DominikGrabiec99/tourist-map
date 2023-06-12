@@ -1,10 +1,11 @@
 <template>
   <button
-    class="py-1 text-white"
-    :class="{
-      'bg-pink-600 hover:bg-pink-700': secondary,
-      ' bg-sky-400 hover:bg-sky-500': !secondary,
-    }"
+    class="py-1 text-white cursor-pointer"
+    data-test="button"
+    :class="[
+      secondary ? 'bg-pink-600 hover:bg-pink-700' : 'bg-sky-400 hover:bg-sky-500',
+      disabled ? 'disabled:opacity-50 cursor-default' : '']"
+    :disabled="disabled"
     @click="$emit('click')"
   >
     {{ text }}
@@ -18,11 +19,13 @@ withDefaults(
     text?: string;
     secondary?: boolean;
     buttonClass?: string;
+    disabled?: boolean;
   }>(),
   {
     text: '',
     secondary: false,
     buttonClass: '',
+    disabled: false
   }
 );
 

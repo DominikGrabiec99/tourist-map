@@ -3,6 +3,7 @@
     <label
       v-if="label"
       :for="id"
+      data-test="input-label"
       class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700"
       :class="{
         'after:content-[]': !isRequire,
@@ -11,6 +12,7 @@
     >
     <input
       :name="name"
+      data-test="input"
       v-model="modelValue"
       :placeholder="placeholder"
       :id="id"
@@ -23,7 +25,7 @@
       @focus="emit('toggle-focus-input', true)"
       @blur="emit('toggle-focus-input', false)"
     />
-    <label class="block text-sm font-medium text-red-500">
+    <label v-if="error" data-test="input-error" class="block text-sm font-medium text-red-500">
       {{ error }}
     </label>
   </div>
@@ -44,7 +46,7 @@ const props = withDefaults(
   }>(),
   {
     placeholder: '',
-    id: '',
+    id: 'input_id',
     label: '',
     isRequire: false,
     name: '',

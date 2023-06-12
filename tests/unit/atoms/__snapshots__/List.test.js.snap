@@ -1,0 +1,46 @@
+// Vitest Snapshot v1
+
+exports[`List.vue > render component 1`] = `
+<div
+  class="list"
+>
+  
+  
+  <ol
+    class="list list-outside list-decimal list-none"
+    data-test="list"
+  >
+    
+    <li
+      class="list-item"
+    >
+      
+      <span>
+        test value 1
+      </span>
+      
+    </li>
+    <li
+      class="list-item"
+    >
+      
+      <span>
+        test value 2
+      </span>
+      
+    </li>
+    <li
+      class="list-item"
+    >
+      
+      <span>
+        test value 3
+      </span>
+      
+    </li>
+    
+  </ol>
+  
+  
+</div>
+`;

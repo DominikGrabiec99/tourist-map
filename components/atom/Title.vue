@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 const {
   content = '',
-  tag = '',
+  tag = 'h1',
   bold = true,
 } = defineProps<{
   content?: string;

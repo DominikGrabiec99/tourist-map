@@ -2,6 +2,7 @@
   <div class="list">
     <slot name="top" />
     <component
+      data-test="list"
       :is="enumerateList ? 'ol' : 'ul'"
       class="list list-outside list-decimal"
       :class="{

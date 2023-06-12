@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`Icon.vue > render component 1`] = `
+<div
+  class="icon-container"
+>
+  <font-awesome-icon
+    class="icon"
+    icon="fas,xmark"
+  />
+</div>
+`;

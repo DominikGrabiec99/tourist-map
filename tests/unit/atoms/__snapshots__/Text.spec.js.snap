@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`Title.vue > render components 1`] = `
+<p>
+  Test text 
+  
+  
+</p>
+`;

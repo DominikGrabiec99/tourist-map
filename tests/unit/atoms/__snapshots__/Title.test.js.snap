@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`Title.vue > render components 1`] = `
+<h2
+  class="text-xl font-bold"
+>
+  Test title 
+  
+  
+</h2>
+`;

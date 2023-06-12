@@ -1,0 +1,31 @@
+// Vitest Snapshot v1
+
+exports[`Input.vue > render component 1`] = `
+<div
+  class="md:max-w-xs"
+>
+  <label
+    class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700"
+    data-test="input-label"
+    for="input_id"
+  >
+    Test Label
+  </label>
+  <input
+    autocomplete="off"
+    class="border-red-500 placeholder:italic placeholder:text-slate-400 mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 dark:bg-neutral-800 dark:text-white outline-none focus:border-inherit focus:shadow-none transition-color"
+    data-test="input"
+    id="input_id"
+    name=""
+    pattern=""
+    placeholder="Test placeholder"
+    type="text"
+  />
+  <label
+    class="block text-sm font-medium text-red-500"
+    data-test="input-error"
+  >
+    Test error
+  </label>
+</div>
+`;

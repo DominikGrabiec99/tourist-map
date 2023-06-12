@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Image.vue > render image 1`] = `
+<img
+  alt="Photo"
+  class="image"
+  data-test="image"
+  src="../../../public/favicon.png"
+/>
+`;

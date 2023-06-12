@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`Button.vue > render component 1`] = `
+<button
+  class="py-1 text-white cursor-pointer bg-sky-400 hover:bg-sky-500"
+  data-test="button"
+>
+  Next 
+  
+  
+</button>
+`;
