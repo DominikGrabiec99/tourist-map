@@ -1,16 +1,26 @@
 import {
   defineConfig
-} from 'vite'
-import vue from '@vitejs/plugin-vue'
+} from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path'
 
 export default defineConfig({
-  plugins: [vue({
-    script: {
-      defineModel: true,
-    }
-  })],
+  plugins: [
+    vue({
+      script: {
+        defineModel: true,
+      }
+    })
+  ],
   test: {
     globals: true,
     environment: 'jsdom'
-  }
-})
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './'),
+      '~': path.resolve(__dirname, './'),
+      '#imports': path.resolve(__dirname, './.nuxt/imports.d.ts')
+    }
+  },
+});

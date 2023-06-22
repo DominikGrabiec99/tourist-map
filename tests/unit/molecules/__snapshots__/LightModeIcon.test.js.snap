@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`LightModeIcon.vue > render component 1`] = `
+<icon
+  class="dark:text-white pl-1 cursor-pointer transition-color"
+  name="solar:moon-broken"
+  size="24"
+/>
+`;

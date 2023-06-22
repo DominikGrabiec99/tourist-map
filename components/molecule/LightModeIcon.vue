@@ -1,6 +1,6 @@
 <template>
   <Icon
-    :name="mode[getLightMode]"
+    :name="name"
     size="24"
     class="dark:text-white pl-1 cursor-pointer transition-color"
     @click="toggleLightMode"
@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import { useLightModeStore } from '@/stores/useLightModeStore';
 import { storeToRefs } from 'pinia';
+import { computed } from 'vue';
 
 import EPageLightMode from '@/ts/enums/PageLightMode';
 
@@ -23,4 +24,6 @@ const mode = {
 }
 
 const { getLightMode } = storeToRefs(lightModeStore);
+
+const name = computed(() => mode[getLightMode.value])
 </script>

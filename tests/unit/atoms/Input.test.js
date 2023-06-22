@@ -6,6 +6,7 @@ import {
   mount,
 } from '@vue/test-utils';
 import Input from '../../../components/atom/Input.vue';
+
 describe('Input.vue', () => {
   let wrapper;
 

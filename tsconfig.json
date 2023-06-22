@@ -15,7 +15,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "lib": ["esnext", "es6", "dom", "dom.iterable"],
-    "types": ["@types/node", "vite/client"],
+    "types": ["@types/node", "vite/client", "vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
