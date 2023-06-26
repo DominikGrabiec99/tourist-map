@@ -1,11 +1,6 @@
-import {
-  describe,
-  it
-} from 'vitest';
-import {
-  mount
-} from '@vue/test-utils';
-import List from '../../../components/atom/List.vue';
+import { describe, it } from 'vitest';
+import { mount } from '@vue/test-utils';
+import List from '@/components/atom/List.vue';
 
 describe('List.vue', () => {
   let wrapper;
@@ -21,7 +16,7 @@ describe('List.vue', () => {
       },
     });
 
-    list = wrapper.get('[data-test="list"]')
+    list = wrapper.get('[data-test="list"]');
   });
 
   it('render component', () => {

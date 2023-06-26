@@ -1,12 +1,6 @@
-import {
-  describe,
-  expect,
-  it
-} from 'vitest';
-import {
-  mount
-} from '@vue/test-utils';
-import Image from '../../../components/atom/Image.vue';
+import { describe, expect, it } from 'vitest';
+import { mount } from '@vue/test-utils';
+import Image from '@/components/atom/Image.vue';
 
 describe('Image.vue', () => {
   let wrapper;

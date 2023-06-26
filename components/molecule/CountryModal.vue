@@ -5,8 +5,10 @@
   <AtomLink
     @click="$emit('close-modal')"
     :href="`/country/${pickedCountry.id.toLowerCase()}`"
-    ><AtomButton>Wybierz</AtomButton></AtomLink
+    data-test="link"
   >
+    <AtomButton>Wybierz</AtomButton>
+  </AtomLink>
 </template>
 
 <script lang="ts" setup>

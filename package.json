@@ -6,11 +6,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "babel-eslint": "^10.1.0",
+    "c8": "^8.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-loader": "^4.0.2",
@@ -21,6 +23,7 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "tailwindcss": "^3.3.1",
+    "unplugin-auto-import": "^0.4.11",
     "vue": "^3.3.4"
   },
   "dependencies": {
@@ -42,6 +45,7 @@
     "node-sass": "^8.0.0",
     "sass": "^1.60.0",
     "typescript": "^5.0.2",
+    "unplugin-vue-components": "^0.25.1",
     "vitest": "^0.12.4",
     "vue-server-renderer": "^2.7.14"
   }

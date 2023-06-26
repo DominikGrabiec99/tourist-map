@@ -1,12 +1,6 @@
-import {
-  describe,
-  it,
-  expect
-} from 'vitest';
-import {
-  mount,
-} from '@vue/test-utils';
-import Button from '../../../components/atom/Button.vue';
+import { describe, it, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
+import Button from '@/components/atom/Button.vue';
 
 describe('Button.vue', () => {
   let wrapper;
@@ -20,7 +14,7 @@ describe('Button.vue', () => {
   });
 
   it('render component', () => {
-    expect(wrapper.element).toMatchSnapshot()
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('render props.text', () => {
@@ -40,7 +34,9 @@ describe('Button.vue', () => {
       },
     });
 
-    expect(wrapper.get('[data-test="button"]').classes()).toContain('bg-pink-600');
+    expect(wrapper.get('[data-test="button"]').classes()).toContain(
+      'bg-pink-600'
+    );
   });
 
   it("shouldn't have secondary class", () => {
@@ -50,27 +46,32 @@ describe('Button.vue', () => {
       },
     });
 
-    expect(wrapper.get('[data-test="button"]').classes()).toContain('bg-sky-400');
+    expect(wrapper.get('[data-test="button"]').classes()).toContain(
+      'bg-sky-400'
+    );
   });
 
-  it("check is button disabled", () => {
+  it('check is button disabled', () => {
     const wrapper = mount(Button, {
       props: {
         disabled: true,
       },
     });
 
-    expect(wrapper.get('[data-test="button"]').attributes('disabled')).toBeTypeOf('string');
-    expect(wrapper.get('[data-test="button"]').classes()).toContain('cursor-default');
+    expect(
+      wrapper.get('[data-test="button"]').attributes('disabled')
+    ).toBeTypeOf('string');
+    expect(wrapper.get('[data-test="button"]').classes()).toContain(
+      'cursor-default'
+    );
   });
 
-  it("trigger button", async () => {
+  it('trigger button', async () => {
     const wrapper = mount(Button);
-    wrapper.vm.$emit('click')
+    wrapper.vm.$emit('click');
 
-    await wrapper.vm.$nextTick()
+    await wrapper.vm.$nextTick();
 
     expect(wrapper.emitted().click).toBeTruthy();
   });
-
 });

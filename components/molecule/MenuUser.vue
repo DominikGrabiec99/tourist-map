@@ -1,6 +1,6 @@
 <template>
   <div
-    class=" relative flex justify-center items-end text-3xl px-1 cursor-pointer z-20"
+    class="relative flex justify-center items-end text-3xl px-1 cursor-pointer z-20"
     id="user-menu"
   >
     <Icon
@@ -8,13 +8,15 @@
       size="24"
       id="user-menu"
       class="dark:text-white"
+      data-test="icon-open-user-menu"
       @click="$emit('toggle-user-menu', !isUserMenuOpen)"
     />
     <Transition name="menu">
       <div
         v-if="isUserMenuOpen"
         class="absolute bottom-0 translate-y-full bg-white dark:text-white dark:bg-neutral-900 text-sm w-32 p-2 border-gray-300 border rounded flex flex-col z-40 transition-color"
-      >
+        data-test="option-container"
+        >
         <div
           class="absolute w-0 h-0 top-0 left-1/2 -translate-y-full -translate-x-1/2 border-x-8 border-solid border-b-8 border-white border-x-transparent"
         />

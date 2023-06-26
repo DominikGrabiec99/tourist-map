@@ -1,0 +1,34 @@
+// Vitest Snapshot v1
+
+exports[`CountryModal.vue > render component 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <h1
+    class="text-xl"
+  >
+    Wybrałeś państwo: Polska 
+    
+    
+  </h1>
+  <!-- TODO planned trips -->
+  <nuxtlink
+    data-test="link"
+    to="/country/pl"
+  >
+    
+    <button
+      class="py-1 text-white cursor-pointer bg-sky-400 hover:bg-sky-500"
+      data-test="button"
+    >
+       
+      
+      Wybierz
+      
+    </button>
+    
+  </nuxtlink>
+  
+</div>
+`;
