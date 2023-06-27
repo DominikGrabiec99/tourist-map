@@ -5,9 +5,7 @@
       class="mt-2"
       title="Odkryj swój kierunek podróży"
       :founded-counties="foundedCounties"
-      :show-result="showSearchCountryResult"
       @set-select-country="setSelectCountry"
-      @toggle-focus-input="toggleFocusCountryInput"
     />
     <div class="flex h-full w-full">
       <!-- TODO Filters -->
@@ -59,7 +57,6 @@ watch(pickedCountry, () => {
 });
 
 const searchCountryValue = ref('');
-const isFocusSearchCountryInput = ref(false);
 
 const { getFoundedCounties } = useFindCountries();
 const foundedCounties = computed(() =>
@@ -70,12 +67,4 @@ const setSelectCountry = (id: string) => {
   searchCountryValue.value = '';
   selectCountry(id);
 };
-
-const toggleFocusCountryInput = (isFocus: boolean) => {
-  isFocusSearchCountryInput.value = isFocus;
-};
-
-const showSearchCountryResult = computed(
-  () => !!foundedCounties.value.length && isFocusSearchCountryInput.value
-);
 </script>

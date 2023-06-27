@@ -7,9 +7,7 @@
     <MoleculeSearchCountry
       v-model="modelValue"
       :founded-counties="foundedCounties"
-      :show-result="showResult"
       @set-select-country="$emit('set-select-country', $event)"
-      @toggle-focus-input="$emit('toggle-focus-input', $event)"
     />
   </div>
 </template>
@@ -24,13 +22,12 @@ const props = withDefaults(defineProps<{
 }>(), {
   title: '',
   foundedCounties: () => ([]),
-  showResult: true,
+  showResult: false,
 })
 
 const modelValue = defineModel<string>();
 
 const emit = defineEmits<{
-  (e: 'toggle-focus-input', value: boolean): void;
   (e: 'set-select-country', value: string): void;
 }>();
 

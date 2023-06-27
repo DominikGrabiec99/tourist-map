@@ -5,7 +5,7 @@
       placeholder="Znajdź kraj.."
       id="find-country"
       class="w-full"
-      @toggle-focus-input="emit('toggle-focus-input', $event)"
+      @toggle-focus-input="toggleFocusCountryInput"
     />
     <Transition>
       <div
@@ -26,6 +26,7 @@
               <AtomImage
                 :src="`https://flagcdn.com/16x12/${item.code.toLowerCase()}.png`"
                 :altText="item.name_pl"
+                :data-test="`image-country-${item.code}`"
                 class="pr-1 pb-1 inline"
               />
               {{ item.name_pl }}
@@ -44,20 +45,31 @@ const props = withDefaults(
   defineProps<{
     modelValue?: string;
     foundedCounties?: IPolishCountryName[];
-    showResult?: boolean;
+    showInputResult?: boolean;
   }>(),
   {
     foundedCounties: () => [],
-    showResult: true,
+    showInputResult: false,
   }
 );
 
+const { foundedCounties, showInputResult } = toRefs(props)
+
 const modelValue = defineModel<string>();
 
+const isFocusSearchCountryInput = ref(false);
+
+const toggleFocusCountryInput = (isFocus: boolean) => {
+  isFocusSearchCountryInput.value = isFocus;
+};
+
 const emit = defineEmits<{
-  (e: 'toggle-focus-input', value: boolean): void;
   (e: 'set-select-country', value: string): void;
 }>();
+
+const showResult = computed(
+  () => (!!foundedCounties.value.length && isFocusSearchCountryInput.value) || showInputResult.value
+);
 </script>
 
 <style scoped lang="scss">

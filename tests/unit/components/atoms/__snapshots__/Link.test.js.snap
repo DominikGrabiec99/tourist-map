@@ -1,0 +1,33 @@
+// Vitest Snapshot v1
+
+exports[`Icon.vue > render component 1`] = `
+<a
+  _blank="true"
+  data-test="html-link"
+  href="https://www.test.pl"
+>
+  
+  
+</a>
+`;
+
+exports[`Icon.vue > should render "a" html element 1`] = `
+<a
+  _blank="true"
+  data-test="html-link"
+  href="https://www.test.pl"
+>
+  
+  
+</a>
+`;
+
+exports[`Icon.vue > should render nuxtLink 1`] = `
+<nuxtlink
+  data-test="nuxt-link"
+  to="test-link"
+>
+  
+  
+</nuxtlink>
+`;

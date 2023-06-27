@@ -50,6 +50,7 @@ exports[`MenuUser.vue > show menu options 1`] = `
       />
       
       <nuxtlink
+        data-test="nuxt-link"
         to="/test"
       >
         

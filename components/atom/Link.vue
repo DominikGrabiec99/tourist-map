@@ -1,8 +1,8 @@
 <template>
-  <a v-if="isGlobalLink" :href="href" :_blank="blank">
+  <a v-if="isGlobalLink" :href="href" :_blank="blank" data-test="html-link">
     <slot />
   </a>
-  <NuxtLink v-else :to="href">
+  <NuxtLink v-else :to="href"  data-test="nuxt-link">
     <slot />
   </NuxtLink>
 </template>

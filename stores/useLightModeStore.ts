@@ -21,7 +21,6 @@ export const useLightModeStore = defineStore('lightMode', {
   actions: {
     toggleLightMode(): void {
       if (process.server) return;
-
       if (this.lightMode === EPageLightMode.LIGHT) {
         this.lightMode = EPageLightMode.DARK;
       } else {
