@@ -18,6 +18,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    deps: {
+      inline: ['@amcharts/amcharts5'],
+    },
   },
   resolve: {
     alias: {

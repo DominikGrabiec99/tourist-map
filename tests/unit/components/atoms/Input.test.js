@@ -70,4 +70,11 @@ describe('Input.vue', () => {
       'after:content-[]'
     );
   });
+
+  it('check focus input', () => {
+    const input = wrapper.find('input');
+    wrapper.vm.$emit('toggle-focus-input', true);
+    input.trigger('focus');
+    expect(wrapper.emitted('toggle-focus-input')[0]).toEqual([true]);
+  });
 });

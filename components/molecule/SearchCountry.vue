@@ -21,6 +21,7 @@
           <template v-slot="{ item }">
             <span
               class="py-2 px-2 w-full block cursor-pointer"
+              data-test="element-list-span"
               @click="emit('set-select-country', item.code as string)"
             >
               <AtomImage

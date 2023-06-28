@@ -26,6 +26,9 @@ describe('MenuUser.vue', () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.emitted('toggle-user-menu')[0]).toEqual([true]);
+
+    wrapper.find('icon').trigger('click');
+    expect(wrapper.emitted('click')).toHaveLength(1);
   });
 
   it('show menu options', async () => {

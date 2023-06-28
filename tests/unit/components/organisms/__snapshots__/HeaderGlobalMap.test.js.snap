@@ -1,0 +1,16 @@
+// Vitest Snapshot v1
+
+exports[`HeaderGlobalMap.vue > render component 1`] = `
+<div
+  class="block md:flex w-full justify-around"
+>
+  <atomtext
+    class="hidden md:flex items-center text-gray-700 text-xl font-bold"
+    text="test title"
+  />
+  <moleculesearchcountry
+    data-test="search-country"
+    founded-counties=""
+  />
+</div>
+`;

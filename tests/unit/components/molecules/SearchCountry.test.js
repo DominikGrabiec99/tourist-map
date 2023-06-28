@@ -10,6 +10,7 @@ import useFindCountries from '@/composables/useFindCountries.ts';
 
 describe('SearchCountry', () => {
   let wrapper;
+  const { getFoundedCounties } = useFindCountries();
 
   beforeEach(() => {
     wrapper = mount(SearchCountry, {
@@ -38,7 +39,6 @@ describe('SearchCountry', () => {
   });
 
   it('should open countries list', async () => {
-    const { getFoundedCounties } = useFindCountries();
     await wrapper.setProps({
       modelValue: 'Pol',
       foundedCounties: getFoundedCounties('Pol', 3),
@@ -52,7 +52,6 @@ describe('SearchCountry', () => {
   });
 
   it('should render image', async () => {
-    const { getFoundedCounties } = useFindCountries();
     await wrapper.setProps({
       modelValue: 'Pol',
       foundedCounties: getFoundedCounties('Pol', 3),
@@ -66,5 +65,17 @@ describe('SearchCountry', () => {
     expect(imageCountry.element.getAttribute('src')).toBe(
       'https://flagcdn.com/16x12/pf.png'
     );
+  });
+
+  it('click on country from list', async () => {
+    await wrapper.setProps({
+      modelValue: 'Pol',
+      foundedCounties: getFoundedCounties('Pol', 3),
+    });
+    await wrapper.vm.toggleFocusCountryInput(
+      !wrapper.vm.isFocusSearchCountryInput
+    );
+    wrapper.find('[data-test="element-list-span"]').trigger('click');
+    expect(wrapper.emitted('click')).toHaveLength(1);
   });
 });

@@ -37,14 +37,16 @@ const toggleUserMenu = (value: boolean) => {
   isUserMenuOpen.value = value;
 };
 
+const clickBodyEvent = (event: MouseEvent) => {
+  //@ts-ignore
+  if (event.target?.id === 'user-menu') return;
+  toggleUserMenu(false);
+};
+
 if (process.client) {
   document.body.addEventListener(
     'click',
-    (event) => {
-      //@ts-ignore
-      if (event.target?.id === 'user-menu') return;
-      toggleUserMenu(false);
-    },
+    clickBodyEvent,
     true
   );
 }

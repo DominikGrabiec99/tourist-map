@@ -7,6 +7,7 @@
     <MoleculeSearchCountry
       v-model="modelValue"
       :founded-counties="foundedCounties"
+      data-test="search-country"
       @set-select-country="$emit('set-select-country', $event)"
     />
   </div>

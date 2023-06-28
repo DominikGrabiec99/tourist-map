@@ -69,9 +69,8 @@ describe('Button.vue', () => {
   it('trigger button', async () => {
     const wrapper = mount(Button);
     wrapper.vm.$emit('click');
-
+    wrapper.find('button').trigger('click');
     await wrapper.vm.$nextTick();
-
     expect(wrapper.emitted().click).toBeTruthy();
   });
 });

@@ -82,6 +82,7 @@ exports[`SearchCountry > should open countries list 1`] = `
             
             <span
               class="py-2 px-2 w-full block cursor-pointer"
+              data-test="element-list-span"
               data-v-5f819f67=""
             >
               <img
@@ -101,6 +102,7 @@ exports[`SearchCountry > should open countries list 1`] = `
             
             <span
               class="py-2 px-2 w-full block cursor-pointer"
+              data-test="element-list-span"
               data-v-5f819f67=""
             >
               <img
