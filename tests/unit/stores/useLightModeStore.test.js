@@ -1,18 +1,8 @@
-import {
-  describe,
-  it,
-  beforeAll,
-  vi
-} from 'vitest';
-import {
-  setActivePinia,
-  createPinia
-} from 'pinia';
-import {
-  useLightModeStore
-} from '../../../stores/useLightModeStore';
-import EPageLightMode from '../../../ts/enums/PageLightMode';
-import EStorage from '../../../ts/enums/Storage';
+import { describe, it, beforeAll, vi } from 'vitest';
+import { setActivePinia, createPinia } from 'pinia';
+import { useLightModeStore } from '@/stores/useLightModeStore';
+import EPageLightMode from '@/ts/enums/PageLightMode';
+import EStorage from '@/ts/enums/Storage';
 
 describe('useLightModeStore', () => {
   let lightModeStore;
@@ -74,6 +64,6 @@ describe('useLightModeStore', () => {
     localStorage.setItem(EStorage.THEME, EPageLightMode.DARK);
     lightModeStore.getLightModeFromStorage();
     lightModeStore.setLightModeOnPage();
-    expect(document.documentElement.getAttribute('class')).toContain('dark')
+    expect(document.documentElement.getAttribute('class')).toContain('dark');
   });
 });

@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`CountryModal.vue > render component 1`] = `
+<div
+  data-v-d5ca6037=""
+>
+  <atomloading
+    data-test="loading"
+    data-v-d5ca6037=""
+  />
+</div>
+`;

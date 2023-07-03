@@ -42,7 +42,6 @@ describe('LightModeIcon.vue', () => {
     lightModeStore.setLightModeOnPage();
     await wrapper.trigger('click');
     expect(lightModeStore.lightMode).toStrictEqual(EPageLightMode.DARK);
-    console.log(wrapper.element.getAttribute('name'));
     await wrapper.trigger('click');
     expect(lightModeStore.lightMode).toStrictEqual(EPageLightMode.LIGHT);
   });

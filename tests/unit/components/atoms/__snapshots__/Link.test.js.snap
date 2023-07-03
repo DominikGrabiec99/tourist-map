@@ -1,21 +1,10 @@
 // Vitest Snapshot v1
 
-exports[`Icon.vue > render component 1`] = `
-<a
-  _blank="true"
-  data-test="html-link"
-  href="https://www.test.pl"
->
-  
-  
-</a>
-`;
-
 exports[`Icon.vue > should render "a" html element 1`] = `
 <a
-  _blank="true"
   data-test="html-link"
   href="https://www.test.pl"
+  target="blank"
 >
   
   

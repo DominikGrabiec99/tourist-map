@@ -1,0 +1,11 @@
+/* Transitions */
+@import './transitions/transitionColor.scss';
+@import './transitions/sidebarModal';
+
+/* Global */
+@import './base/layer.scss';
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

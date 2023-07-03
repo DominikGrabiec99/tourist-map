@@ -14,11 +14,18 @@ export default defineNuxtConfig({
                 defineModel: true,
                 propsDestructure: true
             }
+        },
+        css: {
+          preprocessorOptions: {
+            scss: {
+              additionalData: '@import "./assets/scss/variables.scss";'
+            }
+          }
         }
   },
   modules: ["@pinia/nuxt", "@vueuse/nuxt", "nuxt-icon"],
   css: [
-    '~/assets/css/main.css',
+    '@/assets/scss/main.scss',
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   postcss: {

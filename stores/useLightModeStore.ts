@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia';
 
+/** ENUMS */
 import EPageLightMode from '@/ts/enums/PageLightMode';
 import EStorage from '@/ts/enums/Storage';
+
+/** UTILS */
+import toggleBodyClass from '@/utils/toggleBodyClass';
 
 interface IRootType {
   lightMode: EPageLightMode | string;
@@ -37,9 +41,9 @@ export const useLightModeStore = defineStore('lightMode', {
       if (process.server) return;
       localStorage.setItem(EStorage.THEME, this.lightMode || '');
       if (this.lightMode === EPageLightMode.DARK) {
-        document.documentElement.classList.add('dark');
+        toggleBodyClass('dark', true)
       } else {
-        document.documentElement.classList.remove('dark');
+        toggleBodyClass('dark', false)
       }
     },
   },

@@ -8,14 +8,19 @@
 </template>
 
 <script lang="ts" setup>
+/** STORE */
 import { useLightModeStore } from '@/stores/useLightModeStore';
+import { useCountryInformationStore } from '@/stores/useCountryInformationStore';
 
+/** ENUMS */
 import ESidebarModalName from '@/ts/enums/SidebarModalName';
 import EProvideName from '@/ts/enums/ProvideName';
 
 const lightModeStore = useLightModeStore();
 
-const { setLightModeOnPage, getLightModeFromStorage } = lightModeStore
+const { setLightModeOnPage, getLightModeFromStorage } = lightModeStore;
+
+const { fetchPolishExchangeRates } = useCountryInformationStore();
 
 const modalOptions = reactive({
   props: {},
@@ -28,26 +33,6 @@ provide(EProvideName.SIDEBAR_MODAL, modalOptions);
 onMounted(() => {
   getLightModeFromStorage();
   setLightModeOnPage();
-})
-
+  fetchPolishExchangeRates();
+});
 </script>
-
-<style lang="scss">
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.4s ease;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-</style>
-
-

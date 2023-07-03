@@ -16,9 +16,20 @@ describe('Icon.vue', () => {
   it('should render "a" html element', () => {
     expect(wrapper.vm.isGlobalLink).toBeTruthy();
     const link = wrapper.get('[data-test="html-link"]');
-    expect(link.element.getAttribute('_blank')).toBeTruthy();
+    expect(link.element.getAttribute('target')).toBe('blank');
     expect(link).toBeDefined();
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('check target element', () => {
+    const wrapper = mount(Link, {
+      props: {
+        href: 'https://www.test.pl',
+        blank: false,
+      },
+    });
+    const link = wrapper.get('[data-test="html-link"]');
+    expect(link.element.getAttribute('target')).toBe('');
   });
 
   it('should render nuxtLink', () => {
