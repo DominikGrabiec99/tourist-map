@@ -2,31 +2,31 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      charset: "UTF-8",
-      title: "Tourist app",
-      viewport: "width=device-width, initial-scale=1.0",
-      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+      charset: 'UTF-8',
+      title: 'Tourist app',
+      viewport: 'width=device-width, initial-scale=1.0',
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     },
   },
   vite: {
-        vue: {
-            script: {
-                defineModel: true,
-                propsDestructure: true
-            }
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "./assets/scss/variables.scss" as *;',
         },
-        css: {
-          preprocessorOptions: {
-            scss: {
-              additionalData: '@import "./assets/scss/variables.scss";'
-            }
-          }
-        }
+      },
+    },
   },
-  modules: ["@pinia/nuxt", "@vueuse/nuxt", "nuxt-icon"],
+  modules: ['@pinia/nuxt', '@vueuse/nuxt', 'nuxt-icon'],
   css: [
     '@/assets/scss/main.scss',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
   ],
   postcss: {
     plugins: {

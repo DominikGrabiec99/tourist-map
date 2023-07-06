@@ -1,0 +1,41 @@
+// Vitest Snapshot v1
+
+exports[`defaultLayout > render layout 1`] = `
+<div
+  class="min-h-screen bg-white dark:bg-neutral-900 transition-color"
+>
+  <!--v-if-->
+  <organismdefaultmobileheader
+    class="block md:hidden"
+  />
+  <organismdefaultheader
+    class="hidden md:block"
+  />
+  <div
+    class="container mx-auto px-2"
+  >
+    
+    
+  </div>
+</div>
+`;
+
+exports[`defaultLayout > should set currencies inStorage 1`] = `
+<div
+  class="min-h-screen bg-white dark:bg-neutral-900 transition-color"
+>
+  <!--v-if-->
+  <organismdefaultmobileheader
+    class="block md:hidden"
+  />
+  <organismdefaultheader
+    class="hidden md:block"
+  />
+  <div
+    class="container mx-auto px-2"
+  >
+    
+    
+  </div>
+</div>
+`;

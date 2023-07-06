@@ -1,0 +1,29 @@
+// Vitest Snapshot v1
+
+exports[`HeaderMainCurrencies.vue > render component 1`] = `
+<div
+  class="currencies-header transition-color bg-gray-50 text-slate-900 dark:bg-neutral-900 dark:text-gray-200 py-1 relative"
+  data-v-24e61421=""
+>
+  <div
+    class="currencies-box flex whitespace-nowrap container mx-auto px-4 md:px-1 lg:px-20 overflow-hidden"
+    data-v-24e61421=""
+  >
+    <organismmaincurrencies
+      currencies="[object Object],[object Object]"
+      data-v-24e61421=""
+    />
+    <organismmaincurrencies
+      currencies="[object Object],[object Object]"
+      data-v-24e61421=""
+    />
+  </div>
+  <icon
+    class="absolute dark:text-white text-neutral-900 bg-white dark:bg-neutral-900 rounded-full bottom-0 left-1/2 translate-x-1/2 translate-y-1/2 z-50 cursor-pointer !hidden"
+    data-v-24e61421=""
+    id="currency-toggle-icon"
+    name="system-uicons:arrow-up-circle"
+    size="20"
+  />
+</div>
+`;

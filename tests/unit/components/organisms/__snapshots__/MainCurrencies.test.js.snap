@@ -1,0 +1,23 @@
+// Vitest Snapshot v1
+
+exports[`MainCurrencies.vue > render component 1`] = `
+<div
+  class="currency-box flex flex-row"
+  data-v-a6221edb=""
+>
+  
+  
+  <moleculecurrencyinformation
+    currency="[object Object]"
+    data-v-a6221edb=""
+  />
+  
+  
+  <moleculecurrencyinformation
+    currency="[object Object]"
+    data-v-a6221edb=""
+  />
+  
+  
+</div>
+`;

@@ -2,6 +2,8 @@ import { describe, it, beforeAll } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useCountryInformationStore } from '@/stores/useCountryInformationStore';
 
+import { mockAllCurrencies } from '@/tests/mockData';
+
 describe('useCountryInformationStore', () => {
   let countryInformationStore;
 
@@ -36,5 +38,10 @@ describe('useCountryInformationStore', () => {
 
     await countryInformationStore.fetchCountryById('de', 'Niemcy');
     expect(countryInformationStore.$state.countriesInformation).toHaveLength(2);
+  });
+
+  it('should get mainCurrencies from list', () => {
+    countryInformationStore.$state.exchangeRates = mockAllCurrencies;
+    expect(countryInformationStore.getMainCurrencies).toHaveLength(9);
   });
 });

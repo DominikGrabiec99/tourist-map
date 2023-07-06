@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 /** INTERFACES */
 import ICountryInformation from '@/ts/interfaces/CountryInformation';
 import IExchangeRates from '@/ts/interfaces/ExchangeRates';
+import IMainCurrency from '@/ts/interfaces/MainCurrency';
 
 interface IRootType {
   countriesInformation: ICountryInformation[];
@@ -12,6 +13,9 @@ interface IRootType {
 /** UTILS */
 import mapFetchCountry from '@/utils/mapFetchCountry';
 
+/** CONSTANTS */
+import MAIN_CURRENCY from '@/constants/mainCurrency';
+
 export const useCountryInformationStore = defineStore(
   'useCountryInformationStore',
   {
@@ -20,6 +24,30 @@ export const useCountryInformationStore = defineStore(
         countriesInformation: [],
         exchangeRates: [],
       };
+    },
+    getters: {
+      getMainCurrencies: (state) => {
+        return state.exchangeRates.reduce((acc: IMainCurrency[], curr) => {
+          const foundedCurrency = MAIN_CURRENCY.find(
+            (currency) => currency.code === curr.code
+          );
+          if (
+            !foundedCurrency ||
+            acc.find((currency) => currency?.code === curr.code)
+          )
+            return acc;
+          acc.push({
+            code: curr.code,
+            symbol: foundedCurrency.symbol,
+            bgPositionX: foundedCurrency.bgPositionX,
+            bgPositionY: foundedCurrency.bgPositionY,
+            name: foundedCurrency.name,
+            mid: curr.mid,
+            priority: foundedCurrency.priority,
+          });
+          return acc;
+        }, []);
+      },
     },
     actions: {
       async fetchPolishExchangeRates(): Promise<void> {

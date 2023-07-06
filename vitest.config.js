@@ -29,4 +29,11 @@ export default defineConfig({
       '#imports': path.resolve(__dirname, './.nuxt/imports.d.ts'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "./assets/scss/variables.scss" as *;',
+      },
+    },
+  },
 });

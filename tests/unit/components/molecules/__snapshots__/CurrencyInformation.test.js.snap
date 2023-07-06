@@ -1,0 +1,61 @@
+// Vitest Snapshot v1
+
+exports[`CurrencyInformation.vue > render component 1`] = `
+<div
+  class="currency flex pl-3 items-center"
+  data-v-5a1df612=""
+>
+  <div
+    class="flag-image text-2xl pr-3"
+    data-v-5a1df612=""
+    style="--background-position-x-var: -19.32145em; --background-position-y-var: -3.25em;"
+  />
+  <div
+    class="flex flex-col"
+    data-v-5a1df612=""
+  >
+    <span
+      class="text-xs"
+      data-v-5a1df612=""
+    >
+      Kurs $: 
+    </span>
+    <span
+      class="text-xs"
+      data-v-5a1df612=""
+    >
+      4.12 zł
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Header.vue > render component 1`] = `
+<div
+  class="currency flex pl-3 items-center"
+  data-v-5a1df612=""
+>
+  <div
+    class="flag-image text-2xl pr-3"
+    data-v-5a1df612=""
+    style="--background-position-x-var: -19.32145em; --background-position-y-var: -3.25em;"
+  />
+  <div
+    class="flex flex-col"
+    data-v-5a1df612=""
+  >
+    <span
+      class="text-xs"
+      data-v-5a1df612=""
+    >
+      Kurs $: 
+    </span>
+    <span
+      class="text-xs"
+      data-v-5a1df612=""
+    >
+      4.12 zł
+    </span>
+  </div>
+</div>
+`;
