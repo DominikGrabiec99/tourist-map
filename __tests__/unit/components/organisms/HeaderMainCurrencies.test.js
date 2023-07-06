@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import HeaderMainCurrencies from '@/components/organism/HeaderMainCurrencies.vue';
 
-import { mainCurrencies } from '@/tests/mockData';
+import { mainCurrencies } from '@/__tests__/mockData';
 
 describe('HeaderMainCurrencies.vue', () => {
   let wrapper;

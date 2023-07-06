@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import MainCurrencies from '@/components/organism/MainCurrencies.vue';
 
-import { mainCurrencies } from '@/tests/mockData';
+import { mainCurrencies } from '@/__tests__/mockData';
 
 const sortedMainCurrencies = mainCurrencies.sort((currencyA, currencyB) =>
   currencyA.priority > currencyB.priority ? 1 : -1

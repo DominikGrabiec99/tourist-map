@@ -2,7 +2,7 @@ import { describe, it, beforeAll } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useCountryInformationStore } from '@/stores/useCountryInformationStore';
 
-import { mockAllCurrencies } from '@/tests/mockData';
+import { mockAllCurrencies } from '@/__tests__/mockData';
 
 describe('useCountryInformationStore', () => {
   let countryInformationStore;
