@@ -2,12 +2,12 @@ const USER_MENU_LOGOUT_OPTIONS = [
   {
     id: 1,
     text: 'Zaloguj się',
-    link: '/',
+    link: '/logowanie',
   },
   {
     id: 2,
     text: 'Zarejestruj się',
-    link: '/',
+    link: '/rejestracja',
   },
 ];
 

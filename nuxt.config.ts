@@ -23,7 +23,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@pinia/nuxt', '@vueuse/nuxt', 'nuxt-icon'],
+  modules: ['@pinia/nuxt', '@vueuse/nuxt', 'nuxt-icon', '@nuxtjs/supabase'],
   css: [
     '@/assets/scss/main.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',

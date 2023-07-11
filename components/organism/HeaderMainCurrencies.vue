@@ -14,10 +14,10 @@
     </div>
     <Icon
       v-if="showCurrencyView"
-      name="system-uicons:arrow-up-circle"
+      name="material-symbols:keyboard-double-arrow-up-rounded"
       size="20"
       id="currency-toggle-icon"
-      class="absolute dark:text-white text-neutral-900 bg-white dark:bg-neutral-900 rounded-full bottom-0 left-1/2 translate-x-1/2 translate-y-1/2 z-50 cursor-pointer !hidden"
+      class="absolute dark:text-white text-neutral-900 bg-white dark:bg-neutral-900 rounded-full bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-50 cursor-pointer !hidden"
       @click="$emit('toggle-currency-view', false)"
     />
   </div>

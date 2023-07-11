@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col px-2 container mx-auto flex-grow">
     <OrganismHeaderGlobalMap
       v-model="searchCountryValue"
       class="mt-2"
@@ -9,7 +9,6 @@
     />
     <div class="flex h-full w-full">
       <!-- TODO Filters -->
-      <div />
       <MoleculeMap :is-map-loading="isMapLoading" @set-map="setMap" />
     </div>
   </div>

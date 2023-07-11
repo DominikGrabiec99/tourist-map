@@ -33,6 +33,7 @@
     "**/*.tsx",
     "**/*.vue",
     "!schema/**/*.ts",
-    "/utils/Validations/YupFields"
-, "plugins/fontawesome.js"  ]
+    "/utils/validations/YupFields",
+    "plugins/fontawesome.js"
+  ]
 }

@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/supabase": "^0.3.8",
     "autoprefixer": "^10.4.14",
     "babel-eslint": "^10.1.0",
     "c8": "^8.0.0",
@@ -46,7 +47,9 @@
     "sass": "^1.60.0",
     "typescript": "^5.0.2",
     "unplugin-vue-components": "^0.25.1",
+    "vee-validate": "^4.10.5",
     "vitest": "^0.12.4",
-    "vue-server-renderer": "^2.7.14"
+    "vue-server-renderer": "^2.7.14",
+    "yup": "^1.2.0"
   }
 }
