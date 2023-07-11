@@ -51,6 +51,7 @@ const setMap = (vMap: HTMLElement) => {
 };
 
 watch(pickedCountry, () => {
+  console.log('debug', !Object.keys(pickedCountry.value).length)
   if (!Object.keys(pickedCountry.value).length) return;
   openModal();
 });
