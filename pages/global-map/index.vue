@@ -50,11 +50,14 @@ const setMap = (vMap: HTMLElement) => {
   map.value = vMap;
 };
 
-watch(pickedCountry, () => {
-  console.log('debug', !Object.keys(pickedCountry.value).length)
-  if (!Object.keys(pickedCountry.value).length) return;
-  openModal();
-});
+watch(
+  () => pickedCountry.value,
+  () => {
+    if (!Object.keys(pickedCountry.value).length) return;
+    openModal();
+  },
+  { immediate: true }
+);
 
 const searchCountryValue = ref('');
 

@@ -4,26 +4,30 @@ import * as am5map from '@amcharts/amcharts5/map';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow';
 import am5geodata_data_countries2 from '@amcharts/amcharts5-geodata/data/countries2';
-import { Country2 } from '@amcharts/amcharts5-geodata/.internal/Data'
+import { Country2 } from '@amcharts/amcharts5-geodata/.internal/Data';
 
 // interfaces
-import IPickedCountry from '@/ts/interfaces/PickedCountry'
+import IPickedCountry from '@/ts/interfaces/PickedCountry';
 
 const useGlobalMap = () => {
-  const pickedCountry = ref<IPickedCountry>();
+  const pickedCountry = ref<IPickedCountry | {}>({});
   const isMapLoading = ref(false);
   let polygonSeries: am5map.MapPolygonSeries;
   let chart: am5map.MapChart;
 
   const getUserCountryIdLocalization = () => {
-      return Intl.DateTimeFormat().resolvedOptions().locale.toUpperCase();
+    return Intl.DateTimeFormat().resolvedOptions().locale.toUpperCase();
   };
 
   const setPickedCountry = (country: Country2, id: string) => {
+    if (!id) {
+      pickedCountry.value = {};
+      return;
+    }
     pickedCountry.value = {
       ...country,
-      id
-    }
+      id,
+    };
   };
 
   const init = (container: HTMLElement) => {
@@ -57,26 +61,26 @@ const useGlobalMap = () => {
       interactive: true,
     });
 
-    // set colors 
+    // set colors
     polygonSeries.mapPolygons.template.setAll({
-      fill: am5.Color.fromCSS("rgb(7, 97, 8)"),
+      fill: am5.Color.fromCSS('rgb(7, 97, 8)'),
       fillOpacity: 1,
-      layer: 2
+      layer: 2,
     });
 
     polygonSeries.mapPolygons.template.states.create('hover', {
-      fill: am5.Color.fromCSS("rgb(7, 115, 8)"),
+      fill: am5.Color.fromCSS('rgb(7, 115, 8)'),
     });
 
     polygonSeries.mapPolygons.template.states.create('active', {
-      fill: am5.Color.fromCSS("rgb(7, 115, 8)"),
+      fill: am5.Color.fromCSS('rgb(7, 115, 8)'),
     });
 
     let backgroundSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {})
     );
     backgroundSeries.mapPolygons.template.setAll({
-      fill: am5.Color.fromCSS("rgb(29, 135, 222)"),
+      fill: am5.Color.fromCSS('rgb(29, 135, 222)'),
       fillOpacity: 1,
       layer: 1,
       strokeOpacity: 0,
@@ -95,7 +99,7 @@ const useGlobalMap = () => {
       selectCountry(target!.dataItem!.get('id') as string);
       previousPolygon = target;
     });
-    
+
     polygonSeries.events.on('datavalidated', function () {
       selectCountry(getUserCountryIdLocalization(), true);
     });
@@ -108,11 +112,11 @@ const useGlobalMap = () => {
     if (!polygonSeries || !chart || !id) return;
     let dataItem = polygonSeries.getDataItemById(id);
     if (!dataItem) {
-      setPickedCountry({} as IPickedCountry, '')
+      setPickedCountry({} as IPickedCountry, '');
       return;
     }
-    if(!isInitSet) {
-      setPickedCountry(am5geodata_data_countries2[id], id)
+    if (!isInitSet) {
+      setPickedCountry(am5geodata_data_countries2[id], id);
     }
     let target = dataItem.get('mapPolygon');
     if (!target) return;
@@ -137,7 +141,7 @@ const useGlobalMap = () => {
     pickedCountry,
     selectCountry,
     init,
-    isMapLoading
+    isMapLoading,
   };
 };
 
