@@ -117,12 +117,7 @@ const signUp = async () => {
     if (error) throw error as Error;
   } catch (err: Error) {
     console.warn(err.error_description || err.message);
-
-    if (err?.message === 'Invalid login credentials') {
-      signUpError.value = 'Nieprawidłowe dane logowania';
-    } else {
-      signUpError.value = 'Coś poszło nie tak. Spróbuj za chwile';
-    }
+    signUpError.value = 'Rejestracja nie powiodła się';
   } finally {
     loading.value = false;
     isFieldsDisabled.value = false;
