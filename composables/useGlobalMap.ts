@@ -107,12 +107,10 @@ const useGlobalMap = () => {
   function selectCountry(id: string, isInitSet = false) {
     if (!polygonSeries || !chart || !id) return;
     let dataItem = polygonSeries.getDataItemById(id);
-    console.log('dataItem', dataItem)
     if (!dataItem) {
       setPickedCountry({} as IPickedCountry, '')
       return;
     }
-    console.log('isInitSet', isInitSet)
     if(!isInitSet) {
       setPickedCountry(am5geodata_data_countries2[id], id)
     }
